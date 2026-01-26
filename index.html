@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시흥제일교회 교회학교 아카이브</title>
+
+  <!-- Fonts -->
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Bright + Primary Colors */
+      --bg: #f6fbff;
+      --card: #ffffff;
+      --text: #1f2937;
+      --sub: #6b7280;
+      --border: rgba(17,24,39,.10);
+
+      --blue:   #2563eb;
+      --red:    #ef4444;
+      --yellow: #f59e0b;
+      --green:  #22c55e;
+      --purple: #a855f7;
+      --orange: #f97316;
+
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(2, 6, 23, .10);
+      --shadow-soft: 0 10px 24px rgba(2, 6, 23, .08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body{
+      font-family: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 500px at 50% -10%, rgba(37,99,235,.18), transparent 70%),
+                  radial-gradient(900px 450px at 10% 10%, rgba(34,197,94,.15), transparent 70%),
+                  radial-gradient(900px 450px at 90% 20%, rgba(245,158,11,.14), transparent 70%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Header */
+    header{
+      padding: 72px 0 36px;
+      text-align: center;
+    }
+    .badge{
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+      color: var(--sub);
+      font-size: .95rem;
+      margin-bottom: 14px;
+    }
+    .badge-dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    h1{
+      font-family: "Gowun Batang", serif;
+      font-size: 2.6rem;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+    .subtitle{
+      color: var(--sub);
+      font-size: 1.05rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Quick info strip */
+    .info-strip{
+      margin: 26px auto 0;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .info{
+      background: rgba(255,255,255,.70);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-align: left;
+      box-shadow: 0 10px 24px rgba(2,6,23,.05);
+    }
+    .info .k{ font-size: .86rem; color: var(--sub); }
+    .info .v{ margin-top: 2px; font-weight: 700; color: var(--text); }
+
+    /* Grid */
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 36px 0 50px;
+    }
+    .card{
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .accent{
+      position: absolute;
+      inset: -120px -120px auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(0px);
+      opacity: .16;
+      background: var(--blue);
+      transform: rotate(25deg);
+    }
+
+    .icon{
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 14px;
+      box-shadow: 0 14px 28px rgba(2,6,23,.12);
+    }
+
+    .label{
+      font-size: .95rem;
+      color: var(--sub);
+      margin-bottom: 6px;
+      font-family: "Gowun Batang", serif;
+    }
+    .title{
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+    .desc{
+      color: var(--sub);
+      font-size: .95rem;
+    }
+
+    .go{
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: rgba(31,41,55,.92);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      transition: background .2s ease;
+    }
+    .card:hover .go{ background: rgba(255,255,255,.90); }
+
+    /* Workshop section */
+    .section{
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(2,6,23,.07);
+      margin-bottom: 46px;
+    }
+    .section h2{
+      font-size: 1.35rem;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+    }
+    .section p{ color: var(--sub); }
+
+    .two-col{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 14px;
+    }
+    .panel{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .panel h3{
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+    .list{
+      margin-left: 18px;
+      color: var(--sub);
+    }
+    .list li{ margin: 6px 0; }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      margin-top: 12px;
+    }
+    th, td{
+      padding: 12px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(17,24,39,.08);
+      font-size: .95rem;
+    }
+    th{
+      background: rgba(37,99,235,.06);
+      font-weight: 800;
+    }
+    tr:last-child td{ border-bottom: none; }
+
+    .quote{
+      margin-top: 16px;
+      border-left: 4px solid rgba(37,99,235,.45);
+      padding: 12px 14px;
+      background: rgba(37,99,235,.06);
+      border-radius: 12px;
+      color: rgba(31,41,55,.92);
+      font-family: "Gowun Batang", serif;
+    }
+
+    footer{
+      text-align: center;
+      padding: 26px 0 34px;
+      color: var(--sub);
+      font-size: .9rem;
+      border-top: 1px solid rgba(17,24,39,.08);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(6px);
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .info-strip{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px){
+      header{ padding: 56px 0 28px; }
+      h1{ font-size: 2.1rem; }
+      .grid{ grid-template-columns: 1fr; }
+      .card{ min-height: 210px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="badge"><span class="badge-dot"></span> Church School AI Archive</div>
+      <h1>시흥제일교회 교회학교 아카이브</h1>
+      <p class="subtitle">
+        예배·공과·2부활동·반모임 준비를 더 가볍게. 교사들이 바로 꺼내 쓰는 AI 도구와 자료 연결 허브입니다.
+      </p>
+
+      <div class="info-strip">
+        <div class="info">
+          <div class="k">목적</div>
+          <div class="v">현장 즉시 적용 + 준비 부담 감소</div>
+        </div>
+        <div class="info">
+          <div class="k">대상</div>
+          <div class="v">교역자·교회학교 교사</div>
+        </div>
+        <div class="info">
+          <div class="k">구성</div>
+          <div class="v">프롬프트 생성기 + AI 서비스 바로가기</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Navigation Grid -->
+    <div class="grid">
+      <!-- 1) Sermon Prompt Generator -->
+      <a class="card" href="data/sermon_prompt.html">
+        <div class="accent" style="background: var(--blue);"></div>
+        <div class="icon" style="background: var(--blue);">S</div>
+        <div class="label">설교 준비</div>
+        <div class="title">설교 프롬프트 생성기</div>
+        <div class="desc">본문·대상·목표만 입력하면 설교/공과용 질문·적용·슬라이드 요약 프롬프트를 자동 구성합니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+
+      <!-- 2) Activity Program Prompt Generator -->
+      <a class="card" href="data/activity_prompt.html">
+        <div class="accent" style="background: var(--green);"></div>
+        <div class="icon" style="background: var(--green);">A</div>
+        <div class="label">2부 활동</div>
+        <div class="title">활동 프로그램 프롬프트 생성기</div>
+        <div class="desc">연령·시간·장소(실내/실외) 기준으로 게임/만들기/토의 활동안을 프롬프트로 빠르게 생성합니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+
+      <!-- 3) Image Prompt Generator -->
+      <a class="card" href="data/image_prompt.html">
+        <div class="accent" style="background: var(--purple);"></div>
+        <div class="icon" style="background: var(--purple);">I</div>
+        <div class="label">시각 자료</div>
+        <div class="title">이미지 프롬프트 생성기</div>
+        <div class="desc">성경 장면/캐릭터/색감/구도 옵션을 선택해 예배/교육용 이미지를 만들 프롬프트를 완성합니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+
+      <!-- 4) Gemini -->
+      <a class="card" href="data/gemini.html">
+        <div class="accent" style="background: var(--yellow);"></div>
+        <div class="icon" style="background: var(--yellow);">G</div>
+        <div class="label">AI 서비스</div>
+        <div class="title">Gemini 바로가기</div>
+        <div class="desc">설교/공과 요약을 슬라이드 구조로 바꾸거나, 스토리북/학습자료 초안을 만드는 데 활용합니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+
+      <!-- 5) Grok -->
+      <a class="card" href="data/grok.html">
+        <div class="accent" style="background: var(--red);"></div>
+        <div class="icon" style="background: var(--red);">K</div>
+        <div class="label">AI 서비스</div>
+        <div class="title">Grok 바로가기</div>
+        <div class="desc">이미지 기반 아이디어 확장, 이미지→짧은 영상 변환(가능 범위 내)을 통해 도입/마무리 자료로 확장합니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+
+      <!-- 6) Suno -->
+      <a class="card" href="data/suno.html">
+        <div class="accent" style="background: var(--orange);"></div>
+        <div class="icon" style="background: var(--orange);">♪</div>
+        <div class="label">찬양/챈트</div>
+        <div class="title">Suno 바로가기</div>
+        <div class="desc">가사(제미나이/챗GPT) → 프롬프트 → 챈트/주제가/요약 노래 제작으로 암송과 참여도를 높입니다.</div>
+        <div class="go">바로 열기 <span aria-hidden="true">→</span></div>
+      </a>
+    </div>
+
+    <!-- 2) Workshop content reorganized -->
+    <section class="section" id="workshop">
+      <h2>AI를 활용한 교회학교 실제 적용 워크숍</h2>
+      <p>
+        교회학교 현장에서 바로 쓸 수 있는 형태로, “완성품 만들기”보다 “활용 구조 만들기”에 초점을 둡니다.
+      </p>
+
+      <div class="two-col">
+        <div class="panel">
+          <h3>교육 개요</h3>
+          <ul class="list">
+            <li><b>일시</b>: 2026년 2월 8일(주일) 16:00 ~ 17:30 (90분)</li>
+            <li><b>장소</b>: 시흥제일교회 1층 예배실</li>
+            <li><b>대상</b>: 교역자 및 교회학교 교사 약 30명</li>
+            <li><b>강사</b>: 김태주, 이광복</li>
+            <li><b>준비물</b>: 개인 랩탑 또는 스마트폰, 공용 스크린</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>교육 목적</h3>
+          <ul class="list">
+            <li>AI에 대한 두려움을 낮추고, 교회교육 도구로 자연스럽게 접근</li>
+            <li>설교·공과·2부활동·반모임에 즉시 적용 가능한 활용 역량 강화</li>
+            <li>일회성 체험이 아니라, 준비 부담을 지속적으로 줄이는 구조 형성</li>
+            <li>영유아부·어린이부·청소년부 특성에 맞춘 실제 적용</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top:18px;">전체 진행 구조 (90분)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>시간</th>
+            <th>핵심 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>도입</td>
+            <td>10분</td>
+            <td>AI 이해 및 오늘의 목표(활용 구조) 정렬</td>
+          </tr>
+          <tr>
+            <td>공통 교육</td>
+            <td>35분</td>
+            <td>전 부서 공통으로 바로 쓰는 AI 실습</td>
+          </tr>
+          <tr>
+            <td>부서별 맞춤</td>
+            <td>30분</td>
+            <td>영유아부·어린이부·청소년부 적용 시나리오</td>
+          </tr>
+          <tr>
+            <td>확장 안내</td>
+            <td>15분</td>
+            <td>지속 교육/컨설팅 로드맵 제시</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col">
+        <div class="panel">
+          <h3>공통 교육 실습 (35분) — 무엇을 해보나</h3>
+          <ul class="list">
+            <li><b>AI Studio</b>: 준비된 프롬프트로 설교/공과 초안 생성, 묵상 포인트 정리</li>
+            <li><b>설교 프롬프트 생성기</b>: 본문·대상·목표 입력 → 설교/공과 질문·적용 프롬프트 완성</li>
+            <li><b>Gemini</b>: 설교/공과 요약 → 예배용 슬라이드 구조 자동 생성</li>
+            <li><b>Gemini</b>: 스토리북 제작(아이/교회 정보 반영) → 흑백 색칠공부 변환</li>
+            <li><b>활동자료 생성</b>: “이 본문으로 10분 활동 추천” 요청, 연령별 난이도 조정</li>
+            <li><b>Suno</b>: (가사 생성 → 프롬프트) 챈트/주제가/설교요약 노래 제작</li>
+            <li><b>이미지 생성</b>: 예배/교육용 고품질 이미지 및 캐릭터 제작</li>
+            <li><b>Grok</b>: 이미지 → 짧은 영상 변환으로 도입/마무리 자료 확장</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>부서별 맞춤 적용 (30분)</h3>
+          <ul class="list">
+            <li><b>영유아부</b>: 색칠공부 캐릭터, 성경인물 캐릭터화, 방수 라벨 스티커(출석/암송/보상)</li>
+            <li><b>어린이부(BCM)</b>: 교재 본문 기반 설교 요약, 흐름을 해치지 않는 활동자료 생성, 준비 시간 절감</li>
+            <li><b>청소년부</b>: 나눔지 자동 생성(이해/적용/토론 질문), 설교 흐름 확장하는 소그룹 구조</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px;">
+        <h3>계속 강의 및 확장 로드맵 (15분)</h3>
+        <ul class="list">
+          <li><b>연간 컨설팅</b>: 교회학교 교육 계획 수립, AI 활용 지점 설계</li>
+          <li><b>심화 교육</b>:
+            <ul class="list">
+              <li>AI 이해(신학적·윤리적 관점 포함)</li>
+              <li>프롬프트로 연간 계획서/행사 기획안/행정 서식 자동화</li>
+              <li>GitHub 기반 무료 랜딩페이지 제작</li>
+              <li>부서별 홈페이지 및 아카이브 구축(설교/공과/활동자료 저장소화)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel" style="margin-top:18px;">
+        <h3>기대 효과</h3>
+        <ul class="list">
+          <li>교사 개인의 준비 부담 감소</li>
+          <li>자료의 질과 일관성 향상</li>
+          <li>부서 간 자료 공유 구조 형성</li>
+          <li>AI를 분별하며 사용하는 건강한 교회교육 문화 정착</li>
+        </ul>
+
+        <div class="quote">
+          “AI는 교회를 대신하지 않습니다. 그러나 교회를 섬기는 우리의 손을 가볍게 만들어 줄 수 있습니다.”
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 시흥제일교회 교회학교 아카이브. All rights reserved.</div>
+  </footer>
+</body>
+</html>
