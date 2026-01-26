@@ -10,23 +10,51 @@
 
 <style>
 :root{
-  --bg:#f6fbff; --card:#fff; --text:#1f2937; --sub:#6b7280;
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --text:#1f2937;
+  --sub:#6b7280;
   --border:rgba(0,0,0,.08);
-  --blue:#2563eb; --green:#22c55e; --purple:#a855f7;
-  --yellow:#f59e0b; --red:#ef4444; --orange:#f97316;
+
+  --blue:#2563eb;
+  --green:#22c55e;
+  --purple:#a855f7;
+  --yellow:#f59e0b;
+  --red:#ef4444;
+  --orange:#f97316;
+
   --radius:20px;
   --shadow:0 16px 40px rgba(0,0,0,.1);
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:Pretendard,system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-header{text-align:center;padding:80px 0 40px}
-h1{font-family:"Gowun Batang",serif;font-size:2.6rem;margin-bottom:10px}
-.subtitle{color:var(--sub);font-size:1.05rem}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* ===== Header ===== */
+header{
+  text-align:center;
+  padding:80px 0 50px;
+}
+h1{
+  font-family:"Gowun Batang",serif;
+  font-size:2.6rem;
+  margin-bottom:10px;
+}
+.subtitle{
+  color:var(--sub);
+  font-size:1.05rem;
+}
 
 /* ===== 공통 카드 ===== */
 .card{
@@ -35,131 +63,26 @@ h1{font-family:"Gowun Batang",serif;font-size:2.6rem;margin-bottom:10px}
   padding:28px;
   box-shadow:var(--shadow);
 }
+
 .icon{
-  width:48px;height:48px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-weight:900;margin-bottom:14px;
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:900;
+  margin-bottom:14px;
 }
 
-/* ===== 메인 그리드 ===== */
-.main-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-  margin:60px 0;
-}
-.main-grid a{text-decoration:none;color:inherit}
-
-/* ===== 워크숍 섹션 ===== */
-.section{margin:80px 0}
-.section-title{text-align:center;margin-bottom:30px}
-
-/* intro 카드 */
-.workshop-intro{
-  max-width:760px;
-  margin:0 auto 50px;
-  text-align:center;
+.label{
+  font-family:"Gowun Batang",serif;
+  color:var(--sub);
+  margin-bottom:4px;
 }
 
-/* 워크숍 카드 그리드 */
-.workshop-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-/* 인용 카드 */
-.quote-card{
-  max-width:760px;
-  margin:60px auto 0;
-  text-align:center;
-  background:linear-gradient(135deg,#eef2ff,#f8fafc);
-}
-
-/* 반응형 */
-@media(max-width:900px){
-  .workshop-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .workshop-grid{grid-template-columns:1fr}
-  h1{font-size:2.1rem}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="container">
-    <h1>시흥제일교회 교회학교 아카이브</h1>
-    <p class="subtitle">교회학교 교사를 위한 AI 도구 바로가기 허브</p>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- ===== 워크숍 섹션 ===== -->
-  <section class="section" id="workshop">
-
-    <div class="card workshop-intro">
-      <h2 style="font-family:'Gowun Batang',serif;margin-bottom:12px">
-        AI를 활용한 교회학교 실제 적용 워크숍
-      </h2>
-      <p class="subtitle">
-        교회학교 현장에서 바로 활용할 수 있도록<br>
-        <strong>‘완성품 제작’이 아닌 ‘활용 구조 만들기’</strong>에 초점을 둔 실습형 워크숍입니다.
-      </p>
-    </div>
-
-    <div class="workshop-grid">
-
-      <div class="card">
-        <div class="icon" style="background:var(--blue)">i</div>
-        <h3>교육 개요</h3>
-        <p class="subtitle">
-          2026.02.08(주일)<br>
-          16:00 ~ 17:30 (90분)<br>
-          시흥제일교회 1층 예배실
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon" style="background:var(--green)">✓</div>
-        <h3>교육 목적</h3>
-        <p class="subtitle">
-          AI 두려움 제거<br>
-          설교·공과·2부 활동 즉시 적용<br>
-          준비 부담 감소 구조 형성
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon" style="background:var(--purple)">★</div>
-        <h3>기대 효과</h3>
-        <p class="subtitle">
-          교사 준비 시간 감소<br>
-          자료의 질·일관성 향상<br>
-          건강한 AI 교육 문화
-        </p>
-      </div>
-
-    </div>
-
-    <div class="card quote-card">
-      <div class="icon" style="background:var(--yellow);margin:0 auto 14px">✦</div>
-      <p style="font-family:'Gowun Batang',serif;font-size:1.15rem">
-        AI는 교회를 대신하지 않습니다.<br>
-        그러나 교회를 섬기는 우리의 손을 가볍게 만들어 줍니다.
-      </p>
-    </div>
-
-  </section>
-
-</main>
-
-<footer style="text-align:center;padding:40px 0;color:var(--sub)">
-  © 2026 시흥제일교회 교회학교 아카이브
-</footer>
-
-</body>
-</html>
+.title{
+  font-size:1.25rem;
+  font-weight:800;
+  margin
