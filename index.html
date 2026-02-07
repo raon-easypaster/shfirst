@@ -68,6 +68,28 @@ h1{
   border-radius:var(--radius);
   padding:28px;
   box-shadow:var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* 강조 카드 스타일 */
+.card.highlight {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.card.highlight .label,
+.card.highlight .desc,
+.card.highlight .go {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card.highlight .icon {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .icon{
@@ -168,9 +190,7 @@ h1{
   </div>
 </header>
 
-  <!-- 워크숍 -->
   <section class="section" id="workshop">
-
     <div class="card workshop-intro">
       <h2 style="font-family:'Gowun Batang',serif;margin-bottom:12px">
         AI를 활용한 교회학교 실제 적용 워크숍
@@ -181,8 +201,7 @@ h1{
       </p>
     </div>
 
-    <div class="workshop-grid">
-
+    <div class="workshop-grid container">
       <div class="card">
         <div class="icon" style="background:var(--blue)">i</div>
         <p class="subtitle">
@@ -209,7 +228,6 @@ h1{
           건강한 AI 문화
         </p>
       </div>
-
     </div>
 
     <div class="card quote-card">
@@ -219,12 +237,18 @@ h1{
         그러나 교회를 섬기는 우리의 손을 가볍게 만들어 줍니다.
       </p>
     </div>
-
   </section>
-<main class="container">
 
-  <!-- AI 도구 -->
+<main class="container">
   <div class="tool-grid">
+
+    <a class="card highlight" href="https://docs.google.com/presentation/d/1LaVuWcW1Fx9O6Qv_9RTH3_zBHmq61bsKviAyDL9apNY/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener noreferrer">
+      <div class="icon">P</div>
+      <div class="label">워크숍 강의안</div>
+      <div class="title">안녕! AI - 반갑다 친구야</div>
+      <div class="desc">오늘 워크숍의 핵심 내용과 강의 자료</div>
+      <div class="go">슬라이드 보기 →</div>
+    </a>
 
     <a class="card" href="https://ai.studio/apps/drive/1BRu6fVmDMvePFA-7R_tGYSgAqSxSljM5" target="_blank" rel="noopener noreferrer">
       <div class="icon" style="background:var(--blue)">S</div>
@@ -283,8 +307,6 @@ h1{
     </a>
 
   </div>
-
-
 </main>
 
 <footer style="text-align:center;padding:40px 0;color:var(--sub)">
